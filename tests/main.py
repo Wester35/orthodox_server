@@ -1,17 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from classes import User
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:@5.228.52.190/from_flask'
-#
-# class User(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     username = db.Column(db.String(80), unique=True, nullable=False)
-#     email = db.Column(db.String(120), unique=True, nullable=False)
-#
-#     def __repr__(self):
-#         return '<User %r>' % self.username
+app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
+
 
 
 @app.route('/')

@@ -1,13 +1,15 @@
 import aiopg
+from dotenv import load_dotenv
 
+load_dotenv()
 
 async def get_connection_pool():
     return await aiopg.create_pool(
-        database='mes12121',
-        user='postgres',
-        password='Mercedes555!',
-        host='5.228.52.190',
-        port='5432'
+        database=database_,
+        user=user_,
+        password=password_,
+        host=host_,
+        port=port_
     )
 
 
