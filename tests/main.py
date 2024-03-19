@@ -71,30 +71,17 @@ def login():
     return f"User {username} logged in successfully!"
 
 
-# @app.route('/api/endpoint/')
-# def process_request():
-#     data = request.json
-#     if 'usrName' in data and 'usrPasswd' in data:
-#         return jsonify(data)
-#     else:
-#         # Если какое-то поле отсутствует, возвращаем ошибку
-#         return jsonify({'error': 'Missing fields in request'}), 400
-# @app.route('/api/endpoint/', methods=['POST'])
-# def process_data():
-#     # Получаем данные из тела POST-запроса
-#     user_name = request.form.get('usrName')
-#     password = request.form.get('usrPasswd')
-#
-#     # Обработка полученных данных
-#     # Например, можно отправить их обратно в виде JSON-ответа
-#     return jsonify({
-#         'status': 'success',
-#         'userName': user_name,
-#         'password': password
-#     })
+@app.route('/api/data', methods=['GET'])
+def get_data():
+    # Пример данных, которые мы хотим вернуть в виде JSON
+    data = {
+        "key": "value",
+        "foo": "bar"
+    }
+    return jsonify(data)
+
 
 if __name__ == '__main__':
-
     with app.app_context():
         db.create_all()
     app.run(host='0.0.0.0', port=7865, debug=True)
