@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
 from dotenv import load_dotenv
 import os
 
@@ -44,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main',
+    'main'
 ]
 
 MIDDLEWARE = [
@@ -80,11 +79,20 @@ WSGI_APPLICATION = 'server.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+name = os.getenv("NAME")
+user = os.getenv("USER")
+passwd = os.getenv("PASSWORD")
+host = os.getenv("HOST")
+port = os.getenv("PORT")
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': name,
+        'USER': user,
+        'PASSWORD': passwd,
+        'HOST': host,
+        'PORT': port,
     }
 }
 
