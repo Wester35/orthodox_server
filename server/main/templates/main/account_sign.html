@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,22 +7,29 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{title}}</title>
+	<link type="text/css" href="{% static 'css\style.css'%}" rel="stylesheet">
 </head>
 <body>
 
-<div class="center">
-	  <form method="post" class="card" novalidate>
+<div class="bodyy">
+	  <form method="post" class="form" novalidate>
 	  	{% csrf_token %}
-	    <h2 class="text-center">{{ name_title_form }}</h2>
+	    <h2 class="form__title">{{ name_title_form }}</h2>
+		  <div class="form_group">
 		{% for field in form %}
-	    		{{ field.label_tag }}
+<div class="test">
+	    		{{ field.label_tag }} </br></div>
 	        	{{ field }}
+
+				</br>
 	        	{% if field.errors %}
 	        		<small>{{ field.errors|striptags }}</small>
 	        	{% endif %}</br>
-		{% endfor %}
 
-		<input type="submit" value="{{name_button}}" class="btn btn-primary full-width">
+		{% endfor %}
+		  </div>
+
+			  <input type="submit" value="{{name_button}}" class="form__button3 form">
 	</form>
 </div>
 
