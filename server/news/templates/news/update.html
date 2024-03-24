@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+</head>
+<body>
+
+<div class="center">
+	  <form method="post" class="card" novalidate enctype="multipart/form-data">
+	  	{% csrf_token %}
+	    <h2 class="text-center">{{ name_title_form }}</h2>
+
+			{{ form.title }}
+			{{ form.content }}
+			{% if field.errors %}
+				<small>{{ field.errors|striptags }}</small>
+			{% endif %}</br>
+
+
+		<input type="submit" value="{{ name_button }}" class="btn btn-primary full-width">
+	</form>
+</div>
+
+</body>
+</html>

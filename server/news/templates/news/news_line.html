@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+
+</head>
+<body>
+<style>
+    .nnn {
+   word-wrap: break-word;
+   width: 300px;
+    }
+    </style>
+<center>
+<h1>Это новостная лента, а что ты хотел</h1>
+    <p></p>
+    <div class = "nnn">
+    {% for post in posts %}
+        <p>------------------------------------------------------</p>
+        {{post.title}}<br>
+        {{post.content}}<br>
+    <img src="{{ post.photo.url }}" alt="" width="200" height="200"><br>
+        <p>------------------------------------------------------</p>
+    <br>
+
+    {% endfor %}
+    </div>
+    </center>
+</body>
+</html>
