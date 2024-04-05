@@ -1,0 +1,13 @@
+{% extends "news/base.html" %}
+
+{% block content %}
+
+    {% for post in posts %}
+
+        {{post.section}}<br>
+        {{post.date|date:"d.m.Y" }}<br>
+        {{post.time}}<br>
+
+    {% endfor %}
+
+{% endblock %}
